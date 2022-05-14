@@ -27,11 +27,6 @@ public class HotelService {
     public CompletableFuture<Hotel> findHotelById(int hotelId){
         CompletableFuture<Hotel> future = CompletableFuture.supplyAsync(() -> {
             logger.info("In method findHotelById in service class");
-            try {
-                Thread.sleep(50000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             return hotelRepository.findById(hotelId);
         });
         return future;
@@ -41,11 +36,6 @@ public class HotelService {
 
         CompletableFuture<List<Hotel>> future = CompletableFuture.supplyAsync( () -> {
             logger.info("In method findHotels in service class");
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             List<Hotel> hotelList = hotelRepository.findAll();
             return hotelList;
         });
